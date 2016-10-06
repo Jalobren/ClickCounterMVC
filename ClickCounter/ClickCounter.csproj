@@ -137,10 +137,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ClickCounterData.mdf" />
-    <Content Include="App_Data\ClickCounterData_log.ldf">
-      <DependentUpon>ClickCounterData.mdf</DependentUpon>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -158,7 +154,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Clicker\Index.cshtml" />
   </ItemGroup>
