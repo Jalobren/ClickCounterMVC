@@ -35,8 +35,9 @@ namespace ClickCounter.Controllers
                 if (TryValidateModel(dbmodel))
                 {
                     context.SaveChanges();
-                    model = dbmodel;
                 }
+                else { dbmodel.Count -= 1; }
+                model = dbmodel;
             }
             return View("Index", model);
         }
