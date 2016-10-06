@@ -1,0 +1,25 @@
+﻿@model ClickCounter.Models.ClickCounterModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Count", "Clicker", FormMethod.Post))
+        {
+            <button id="addCount_btn">Increment</button>
+            @Html.TextBoxFor(x => x.Count)
+            <br />
+            @Html.ValidationMessageFor(x => x.Count)
+        }
+    </div>
+</body>
+</html>
