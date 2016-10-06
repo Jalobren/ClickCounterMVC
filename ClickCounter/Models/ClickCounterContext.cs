@@ -10,6 +10,7 @@ namespace ClickCounter.Models
         public ClickCounterContext()
             : base("name=ClickCounterContext")
         {
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ClickCounterContext>());
         }
 
         public virtual DbSet<ClickCounterModel> ClickCounters { get; set; }

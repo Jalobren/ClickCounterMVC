@@ -15,8 +15,10 @@
     <div> 
         @using (Html.BeginForm("Count", "Clicker", FormMethod.Post))
         {
+            @Html.HiddenFor(x => x.Id)
+            @Html.HiddenFor(x => x.Count)
             <button id="addCount_btn">Increment</button>
-            @Html.TextBoxFor(x => x.Count)
+            <span>@Model.Count</span>
             <br />
             @Html.ValidationMessageFor(x => x.Count)
         }

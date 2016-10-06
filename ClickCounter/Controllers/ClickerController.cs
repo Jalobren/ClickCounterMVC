@@ -15,6 +15,13 @@ namespace ClickCounter.Controllers
             using (var context = new ClickCounterContext())
             {
                 model = context.ClickCounters.FirstOrDefault();
+                if (model == null)
+                {
+                    model = new ClickCounterModel();
+                    model.Count = 0;
+                    context.ClickCounters.Add(model);
+                    context.SaveChanges();   
+                }
             }
             return View(model);
         }
@@ -23,11 +30,12 @@ namespace ClickCounter.Controllers
         {
             using (var context = new ClickCounterContext())
             {
-                model = context.ClickCounters.FirstOrDefault();
-                if (ModelState.IsValid)
+                var dbmodel = context.ClickCounters.FirstOrDefault(x=>x.Id == model.Id);
+                dbmodel.Count += 1;
+                if (TryValidateModel(dbmodel))
                 {
-                    model.Count += 1;
                     context.SaveChanges();
+                    model = dbmodel;
                 }
             }
             return View("Index", model);

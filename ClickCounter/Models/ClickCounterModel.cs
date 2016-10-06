@@ -11,7 +11,7 @@ namespace ClickCounter.Models
     {
         public int Id { get; set; }
 
-        [Range(0, 9, ErrorMessage = "You've reached the max value")]
+        [Range(0, 10, ErrorMessage = "You've reached the max value")]
         public int Count { get; set; }
     }
 }
